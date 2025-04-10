@@ -125,5 +125,156 @@
 </main>
 
 <style>
+    /* Configurações gerais da página */
+    :root {
+        font-family: Arial, sans-serif; /* Fonte padrão */
+        color: #333; /* Cor do texto principal */
+    }
 
+    /* Container principal */
+    main {
+        max-width: 800px; /* Largura máxima */
+        margin: 0 auto; /* Centraliza na página */
+        padding: 20px; /* Espaçamento interno */
+    }
+
+    /* Estilo do título principal */
+    h1 {
+        text-align: center; /* Centraliza o texto */
+        color: #f9f9f9; /* Cor do texto */
+        margin-bottom: 20px; /* Espaço abaixo */
+    }
+
+    /* Container das abas */
+    .tabs {
+        display: flex; /* Layout flexível */
+        justify-content: center; /* Centraliza os botões */
+        margin-bottom: 20px; /* Espaço abaixo */
+        gap: 10px; /* Espaço entre botões */
+    }
+
+    /* Estilo dos botões das abas */
+    .tabs button {
+        padding: 10px 20px; /* Espaçamento interno */
+        border: none; /* Remove borda padrão */
+        background: #ffffff; /* Cor de fundo */
+        color: #000000; /* Cor do texto */
+        cursor: pointer; /* Cursor de ponteiro */
+        border-radius: 5px; /* Bordas arredondadas */
+        transition: all 0.3s ease; /* Transição suave */
+        border: 1px solid #ddd; /* Borda fina */
+        font-weight: normal; /* Peso da fonte */
+    }
+
+    /* Estilo do botão ativo */
+    .tabs button.active {
+        background: #4CAF50; /* Cor verde */
+        color: white; /* Texto branco */
+        font-weight: bold; /* Negrito */
+        border: 1px solid #4CAF50; /* Borda verde */
+    }
+
+    /* Efeito hover nos botões */
+    .tabs button:hover {
+        background: #f0f0f0; /* Cor de fundo ao passar mouse */
+    }
+
+    /* Área de visualização da cor */
+    .color-display {
+        width: 100%; /* Largura total */
+        height: 100px; /* Altura fixa */
+        margin: 20px 0; /* Margem vertical */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra */
+        border: 1px solid #ddd; /* Borda fina */
+    }
+
+    /* Grupos de inputs */
+    .input-group {
+        background: #f5f5f5; /* Cor de fundo */
+        padding: 20px; /* Espaçamento interno */
+        border-radius: 8px; /* Bordas arredondadas */
+        margin-bottom: 20px; /* Espaço abaixo */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra leve */
+    }
+
+    /* Título dos grupos */
+    .input-group h2 {
+        margin-top: 0; /* Remove margem superior */
+        color: #333; /* Cor do texto */
+        border-bottom: 1px solid #ddd; /* Linha abaixo */
+        padding-bottom: 10px; /* Espaço abaixo */
+    }
+
+    /* Linha de input */
+    .input-row {
+        display: flex; /* Layout flexível */
+        align-items: center; /* Alinha verticalmente */
+        margin-bottom: 15px; /* Espaço abaixo */
+    }
+
+    /* Estilo dos labels */
+    .input-row label {
+        width: 100px; /* Largura fixa */
+        font-weight: bold; /* Texto em negrito */
+        color: #555; /* Cor do texto */
+    }
+
+    /* Inputs numéricos */
+    .input-row input[type="number"] {
+        width: 70px; /* Largura fixa */
+        padding: 8px; /* Espaçamento interno */
+        margin-right: 15px; /* Espaço à direita */
+        border: 1px solid #ddd; /* Borda fina */
+        border-radius: 4px; /* Bordas arredondadas */
+    }
+
+    /* Sliders (inputs de range) */
+    .input-row input[type="range"] {
+        flex-grow: 1; /* Ocupa espaço restante */
+        height: 8px; /* Altura */
+        border-radius: 4px; /* Bordas arredondadas */
+        background: #ddd; /* Cor de fundo */
+        outline: none; /* Remove outline */
+    }
+
+    /* Estilo do "ponteiro" do slider */
+    .input-row input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Remove estilo padrão */
+        width: 18px; /* Largura */
+        height: 18px; /* Altura */
+        border-radius: 50%; /* Forma circular */
+        background: #4CAF50; /* Cor verde */
+        cursor: pointer; /* Cursor de ponteiro */
+    }
+
+    /* Container dos resultados */
+    .results {
+        display: grid; /* Layout em grid */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Colunas responsivas */
+        gap: 20px; /* Espaço entre itens */
+    }
+
+    /* Grupos de resultados */
+    .result-group {
+        background: #f5f5f5; /* Cor de fundo */
+        padding: 15px; /* Espaçamento interno */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Sombra leve */
+    }
+
+    /* Título dos resultados */
+    .result-group h3 {
+        margin-top: 0; /* Remove margem superior */
+        color: #333; /* Cor do texto */
+        border-bottom: 1px solid #ddd; /* Linha abaixo */
+        padding-bottom: 8px; /* Espaço abaixo */
+    }
+
+    /* Texto dos resultados */
+    .result-group p {
+        margin: 8px 0; /* Margem vertical */
+        font-family: 'Courier New', monospace; /* Fonte monoespaçada */
+        color: #222; /* Cor do texto */
+    }
 </style>
