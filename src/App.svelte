@@ -66,7 +66,62 @@
 </script>
 
 <main>
+    <h1>Conversor de Cores</h1>
 
+    <div class="tabs">
+        <button class={abaAtual === 'rgb' ? 'active' : ''} on:click={() => abaAtual = 'rgb'}>RGB → All</button>
+    </div>
+
+    <div class="color-display" style="background-color: rgb({r}, {g}, {b})"></div>
+
+    {#if abaAtual === 'rgb'}
+        <!-- Tela RGB para todas as conversões -->
+        <div class="input-group">
+            <h2>RGB</h2>
+            <div class="input-row">
+                <label>R:</label>
+                <input type="number" min="0" max="255" bind:value={r} on:change={() => r = validaRGB(r)}>
+                <input type="range" min="0" max="255" bind:value={r}>
+            </div>
+            <div class="input-row">
+                <label>G:</label>
+                <input type="number" min="0" max="255" bind:value={g} on:change={() => g = validaRGB(g)}>
+                <input type="range" min="0" max="255" bind:value={g}>
+            </div>
+            <div class="input-row">
+                <label>B:</label>
+                <input type="number" min="0" max="255" bind:value={b} on:change={() => b = validaRGB(b)}>
+                <input type="range" min="0" max="255" bind:value={b}>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="result-group">
+                <h3>CMYK:</h3>
+                <p>C: {c}%</p>
+                <p>M: {m}%</p>
+                <p>Y: {y}%</p>
+                <p>K: {k}%</p>
+            </div>
+
+            <div class="result-group">
+                <h3>HSV:</h3>
+                <p>H: {h}°</p>
+                <p>S: {s}%</p>
+                <p>V: {v}%</p>
+            </div>
+
+            <div class="result-group">
+                <h3>Escala de Cinza:</h3>
+                <p>{escalaCinza}</p>
+            </div>
+
+            <div class="result-group">
+                <h3>RGB Normalizado:</h3>
+                <p>[{rgbNormalizado[0].toFixed(2)}, {rgbNormalizado[1].toFixed(2)}, {rgbNormalizado[2].toFixed(2)}]</p>
+            </div>
+        </div>
+    {/if}
 </main>
 
 <style>
