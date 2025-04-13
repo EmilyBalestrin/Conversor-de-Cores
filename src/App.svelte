@@ -34,7 +34,7 @@
     return Math.min(100, Math.max(0, num));
   }
 
-  // Mantém Hue entre 0-360
+  // Mantém HSV entre 0-360
   function validaHSV(value) {
     let num = parseInt(value) || 0;
     return Math.min(360, Math.max(0, num));
@@ -252,22 +252,22 @@
             <h2>CMYK</h2>
             <div class="input-row">
                 <label>C:</label>
-                <input type="number" min="0" max="100" bind:value={c} on:change={() => c = validateCMYK(c)}>
+                <input type="number" min="0" max="100" bind:value={c} on:change={() => c = validaCMYK(c)}>
                 <input type="range" min="0" max="100" bind:value={c}>
             </div>
             <div class="input-row">
                 <label>M:</label>
-                <input type="number" min="0" max="100" bind:value={m} on:change={() => m = validateCMYK(m)}>
+                <input type="number" min="0" max="100" bind:value={m} on:change={() => m = validaCMYK(m)}>
                 <input type="range" min="0" max="100" bind:value={m}>
             </div>
             <div class="input-row">
                 <label>Y:</label>
-                <input type="number" min="0" max="100" bind:value={y} on:change={() => y = validateCMYK(y)}>
+                <input type="number" min="0" max="100" bind:value={y} on:change={() => y = validaCMYK(y)}>
                 <input type="range" min="0" max="100" bind:value={y}>
             </div>
             <div class="input-row">
                 <label>K:</label>
-                <input type="number" min="0" max="100" bind:value={k} on:change={() => k = validateCMYK(k)}>
+                <input type="number" min="0" max="100" bind:value={k} on:change={() => k = validaCMYK(k)}>
                 <input type="range" min="0" max="100" bind:value={k}>
             </div>
         </div>
@@ -286,8 +286,44 @@
                 <p>V: {v}%</p>
             </div>
         </div>
+    {:else}
+        <!-- Tela HSV para RGB -->
+        <div class="input-group">
+            <h2>HSV</h2>
+            <div class="input-row">
+                <label>H (0-360°):</label>
+                <input type="number" min="0" max="360" bind:value={h} on:change={() => h = validaHSV(h)}>
+                <input type="range" min="0" max="360" bind:value={h}>
+            </div>
+            <div class="input-row">
+                <label>S (0-100%):</label>
+                <input type="number" min="0" max="100" bind:value={s} on:change={() => s = validaPorcentagem(s)}>
+                <input type="range" min="0" max="100" bind:value={s}>
+            </div>
+            <div class="input-row">
+                <label>V (0-100%):</label>
+                <input type="number" min="0" max="100" bind:value={v} on:change={() => v = validaPorcentagem(v)}>
+                <input type="range" min="0" max="100" bind:value={v}>
+            </div>
+        </div>
 
-        </main>
+        <div class="results">
+            <div class="result-group">
+                <h3>RGB Resultante:</h3>
+                <p>R: {r}</p>
+                <p>G: {g}</p>
+                <p>B: {b}</p>
+            </div>
+            <div class="result-group">
+                <h3>CMYK:</h3>
+                <p>C: {c}%</p>
+                <p>M: {m}%</p>
+                <p>Y: {y}%</p>
+                <p>K: {k}%</p>
+            </div>
+        </div>
+    {/if}
+</main>
 
 <style>
     /* Configurações gerais da página */
