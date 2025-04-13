@@ -107,6 +107,37 @@
       b = Math.round(255 * (1 - yNorm) * (1 - kNorm));
   }
 
+  // Converte HSV para RGB
+  function updateRGBFromHSV() {
+      const hNorm = h / 360;
+      const sNorm = s / 100;
+      const vNorm = v / 100;
+
+      const chroma = vNorm * sNorm;
+      const x = chroma * (1 - Math.abs((hNorm * 6) % 2 - 1));
+      const m = vNorm - chroma;
+
+      let rNorm, gNorm, bNorm;
+
+      if (hNorm < 1/6) {
+          [rNorm, gNorm, bNorm] = [chroma, x, 0];
+      } else if (hNorm < 2/6) {
+          [rNorm, gNorm, bNorm] = [x, chroma, 0];
+      } else if (hNorm < 3/6) {
+          [rNorm, gNorm, bNorm] = [0, chroma, x];
+      } else if (hNorm < 4/6) {
+          [rNorm, gNorm, bNorm] = [0, x, chroma];
+      } else if (hNorm < 5/6) {
+          [rNorm, gNorm, bNorm] = [x, 0, chroma];
+      } else {
+          [rNorm, gNorm, bNorm] = [chroma, 0, x];
+      }
+
+      r = Math.round((rNorm + m) * 255);
+      g = Math.round((gNorm + m) * 255);
+      b = Math.round((bNorm + m) * 255);
+  }
+
 </script>
 
 <main>
