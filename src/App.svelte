@@ -47,7 +47,7 @@
   }
 
   // Converte RGB para CMYK
-  function updateCMYK() {
+  function atualizaCMYK() {
     const rNorm = r / 255;
     const gNorm = g / 255;
     const bNorm = b / 255;
@@ -65,7 +65,7 @@
   }
 
   // Converte RGB para HSV
-  function updateHSV() {
+  function atualizaHSV() {
       const rNorm = r / 255;
       const gNorm = g / 255;
       const bNorm = b / 255;
@@ -96,7 +96,7 @@
   }
 
   // Converte CMYK para RGB
-  function updateRGBFromCMYK() {
+  function atualizaRGBdeCMYK() {
       const cNorm = c / 100;
       const mNorm = m / 100;
       const yNorm = y / 100;
@@ -108,7 +108,7 @@
   }
 
   // Converte HSV para RGB
-  function updateRGBFromHSV() {
+  function atualizaRGBdeHSV() {
       const hNorm = h / 360;
       const sNorm = s / 100;
       const vNorm = v / 100;
@@ -146,43 +146,43 @@
           parseFloat((b / 255).toFixed(2))
       ];
       escalaCinza = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
-      updateCMYK();
-      updateHSV();
+      atualizaCMYK();
+      atualizaHSV();
   }
 
   // Atualiza quando a aba CMYK muda
   $: if (abaAtual === 'cmyk') {
-      updateRGBFromCMYK();
+      atualizaRGBdeCMYK();
       rgbNormalizado = [
           parseFloat((r / 255).toFixed(2)),
           parseFloat((g / 255).toFixed(2)),
           parseFloat((b / 255).toFixed(2))
       ];
       escalaCinza = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
-      updateHSV();
+      atualizaHSV();
   }
 
   // Atualiza quando a aba HSV muda
   $: if (abaAtual === 'hsv') {
-      updateRGBFromHSV();
+      atualizaRGBdeHSV();
       rgbNormalizado = [
           parseFloat((r / 255).toFixed(2)),
           parseFloat((g / 255).toFixed(2)),
           parseFloat((b / 255).toFixed(2))
       ];
       escalaCinza = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
-      updateCMYK();
+      atualizaCMYK();
   }
 
   // Observadores extras para garantir que tudo funcione corretamente
   $: if (abaAtual === 'cmyk') {
       const _c = c, _m = m, _y = y, _k = k;
-      updateRGBFromCMYK();
+      atualizaRGBdeCMYK();
   }
 
   $: if (abaAtual === 'hsv') {
       const _h = h, _s = s, _v = v;
-      updateRGBFromHSV();
+      atualizaRGBdeHSV();
   }
 
 </script>
