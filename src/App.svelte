@@ -192,6 +192,8 @@
 
     <div class="tabs">
         <button class={abaAtual === 'rgb' ? 'active' : ''} on:click={() => abaAtual = 'rgb'}>RGB → All</button>
+        <button class={abaAtual === 'cmyk' ? 'active' : ''} on:click={() => abaAtual = 'cmyk'}>CMYK → RGB</button>
+        <button class={abaAtual === 'hsv' ? 'active' : ''} on:click={() => abaAtual = 'hsv'}>HSV → RGB</button>
     </div>
 
     <div class="color-display" style="background-color: rgb({r}, {g}, {b})"></div>
@@ -243,8 +245,49 @@
                 <p>[{rgbNormalizado[0].toFixed(2)}, {rgbNormalizado[1].toFixed(2)}, {rgbNormalizado[2].toFixed(2)}]</p>
             </div>
         </div>
-    {/if}
-</main>
+
+    {:else if abaAtual === 'cmyk'}
+        <!-- Tela CMYK para RGB -->
+        <div class="input-group">
+            <h2>CMYK</h2>
+            <div class="input-row">
+                <label>C:</label>
+                <input type="number" min="0" max="100" bind:value={c} on:change={() => c = validateCMYK(c)}>
+                <input type="range" min="0" max="100" bind:value={c}>
+            </div>
+            <div class="input-row">
+                <label>M:</label>
+                <input type="number" min="0" max="100" bind:value={m} on:change={() => m = validateCMYK(m)}>
+                <input type="range" min="0" max="100" bind:value={m}>
+            </div>
+            <div class="input-row">
+                <label>Y:</label>
+                <input type="number" min="0" max="100" bind:value={y} on:change={() => y = validateCMYK(y)}>
+                <input type="range" min="0" max="100" bind:value={y}>
+            </div>
+            <div class="input-row">
+                <label>K:</label>
+                <input type="number" min="0" max="100" bind:value={k} on:change={() => k = validateCMYK(k)}>
+                <input type="range" min="0" max="100" bind:value={k}>
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="result-group">
+                <h3>RGB Resultante:</h3>
+                <p>R: {r}</p>
+                <p>G: {g}</p>
+                <p>B: {b}</p>
+            </div>
+            <div class="result-group">
+                <h3>HSV:</h3>
+                <p>H: {h}°</p>
+                <p>S: {s}%</p>
+                <p>V: {v}%</p>
+            </div>
+        </div>
+
+        </main>
 
 <style>
     /* Configurações gerais da página */
