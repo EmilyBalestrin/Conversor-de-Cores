@@ -95,6 +95,18 @@
       }
   }
 
+  // Converte CMYK para RGB
+  function updateRGBFromCMYK() {
+      const cNorm = c / 100;
+      const mNorm = m / 100;
+      const yNorm = y / 100;
+      const kNorm = k / 100;
+
+      r = Math.round(255 * (1 - cNorm) * (1 - kNorm));
+      g = Math.round(255 * (1 - mNorm) * (1 - kNorm));
+      b = Math.round(255 * (1 - yNorm) * (1 - kNorm));
+  }
+
 </script>
 
 <main>
