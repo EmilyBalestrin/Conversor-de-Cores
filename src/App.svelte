@@ -63,6 +63,38 @@
     y = Math.round(y * 100);
     k = Math.round(k * 100);
   }
+
+  // Converte RGB para HSV
+  function updateHSV() {
+      const rNorm = r / 255;
+      const gNorm = g / 255;
+      const bNorm = b / 255;
+
+      const max = Math.max(rNorm, gNorm, bNorm);
+      const min = Math.min(rNorm, gNorm, bNorm);
+      const delta = max - min;
+
+      v = Math.round(max * 100);
+
+      if (delta < 0.00001) {
+          h = 0;
+          s = 0;
+      } else {
+          s = Math.round((max === 0 ? 0 : delta / max) * 100);
+
+          if (max === rNorm) {
+              h = ((gNorm - bNorm) / delta) % 6;
+          } else if (max === gNorm) {
+              h = (bNorm - rNorm) / delta + 2;
+          } else {
+              h = (rNorm - gNorm) / delta + 4;
+          }
+
+          h = Math.round(h * 60);
+          if (h < 0) h += 360;
+      }
+  }
+
 </script>
 
 <main>
