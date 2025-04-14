@@ -1,47 +1,49 @@
-# Svelte + Vite
+# Conversor de Cores RGB, CMYK e HSV
 
-This template should help get you started developing with Svelte in Vite.
+Este projeto foi desenvolvido como um **Trabalho Discente Efetivo (TDE)** para a disciplina de **Processamento de Imagens**, cursada no **5º semestre do curso de Ciência da Computação da URI Erechim**, sob orientação do professor **Menin**.
 
-## Recommended IDE Setup
+## 🎯 Objetivo
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+O objetivo da aplicação é permitir a **conversão dinâmica entre os modelos de cores RGB, CMYK e HSV**, com uma interface interativa que permite ao usuário visualizar os valores convertidos e a cor correspondente em tempo real.
 
-## Need an official Svelte framework?
+## ⚙️ Funcionalidades
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- Conversão automática entre os modelos de cor:
+  - **RGB → CMYK e HSV**
+  - **CMYK → RGB e HSV**
+  - **HSV → RGB e CMYK**
+- Validação de entrada para garantir que os valores estejam dentro dos limites corretos.
+- Visualização da cor resultante e seu valor em **escala de cinza**.
+- Interface interativa com **abas para seleção do modelo de entrada**.
 
-## Technical considerations
+## 🧰 Tecnologias Utilizadas
 
-**Why use this over SvelteKit?**
+- [Svelte](https://svelte.dev/) – Framework para construção da interface reativa
+- **HTML5** e **CSS3**
+- **JavaScript (ES6)**
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+## 🚀 Como Utilizar
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+1. Clone o repositório:
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   ```
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+2. Acesse a pasta do projeto:
+   ```bash
+   cd nome-do-repositorio  
+   ```
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+5. Rode a aplicação:
+   ```bash
+   npm run dev
+   ```
+7. Acesse no navegador:
+   ```bash
+   http://localhost:5173
+   ```
